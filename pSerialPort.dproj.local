@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/05/09 16:38:32.000.069,=C:\Users\raul.aguila\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/05/16 19:28:35.000.781,=C:\Users\raul.aguila\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/05/16 19:38:26.000.123,C:\Users\raul.aguila\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\raul.aguila\Desktop\Kingston\Arquivos\Delphi\Driver\2.0\uSerialPort.dfm</Transaction>
+    <Transaction>2019/05/16 19:38:26.000.123,C:\Users\raul.aguila\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\raul.aguila\Desktop\Kingston\Arquivos\Delphi\Driver\2.0\uSerialPort.pas</Transaction>
+    <Transaction>2019/05/16 19:38:34.000.929,C:\Users\raul.aguila\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\raul.aguila\Desktop\Kingston\Arquivos\Delphi\Driver\2.0\pSerialPort.dproj</Transaction>
+    <Transaction>2019/05/20 13:47:24.000.346,=C:\Users\raul.aguila\Desktop\Kingston\Arquivos\Delphi\Driver\2.0\Unit1.pas</Transaction>
+    <Transaction>2019/05/20 13:47:43.000.513,C:\Users\raul.aguila\Desktop\Kingston\Arquivos\Delphi\Driver\2.0\Unit1.pas=C:\Users\raul.aguila\Desktop\Kingston\Arquivos\Delphi\Driver\2.0\uFileINI.pas</Transaction>
+  </Transactions>
+</BorlandProject>

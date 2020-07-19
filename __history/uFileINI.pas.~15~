@@ -1,0 +1,49 @@
+unit uFileINI;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Forms, System.IniFiles, CPort;
+
+type
+  TFileINI = class(TForm)
+    procedure ReadINIFile;
+    procedure WriteINIFile;
+  end;
+
+var
+  uINI: TFileINI;
+
+implementation
+
+uses
+  uSerialPort;
+
+{ TFileINI }
+
+procedure TFileINI.ReadINIFile;
+begin
+  //
+end;
+
+procedure TFileINI.WriteINIFile;
+var
+  ArqINI: TINIFile;
+begin
+  try
+    ArqINI := TINIFile.Create(GetCurrentDir + '\pSerialPort.ini');
+    ArqINI.WriteString('Serial Port', 'Port', fSerial.cmpt1.Port);
+    ArqINI.WriteString('Serial Port', 'BaudRate', BaudRateToStr(fSerial.cmpt1.BaudRate));
+    ArqINI.WriteString('Serial Port', 'DataBits', DataBitsToStr(fSerial.cmpt1.DataBits));
+    ArqINI.WriteString('Serial Port', 'StopBits', StopBitsToStr(fSerial.cmpt1.StopBits));
+    ArqINI.WriteString('Serial Port', 'Parity', ParityToStr(fSerial.cmpt1.Parity));
+    ArqINI.WriteString('Serial Port', 'FlowControl',
+      FlowControlToStr(fSerial.cmpt1.FlowControl));
+  finally
+    ArqINI.Free;
+  end;
+end;
+
+end.
