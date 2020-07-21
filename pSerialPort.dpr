@@ -13,7 +13,7 @@ begin
 	ReportMemoryLeaksOnShutdown := True;
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('Silver');
+  TStyleManager.TrySetStyle('Smokey Quartz Kamri');
   Application.CreateForm(TfSerial, fSerial);
   Application.Run;
 end.
