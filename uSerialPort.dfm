@@ -29,9 +29,9 @@ object fSerial: TfSerial
       Left = 1
       Top = 1
       Width = 53
-      Height = 48
+      Height = 60
       Align = alTop
-      Caption = 'Setup'
+      Caption = 'Port'
       Glyph.Data = {
         42090000424D4209000000000000420000002800000018000000180000000100
         20000300000000090000120B0000120B000000000000000000000000FF0000FF
@@ -113,11 +113,11 @@ object fSerial: TfSerial
     end
     object btnOpen: TSpeedButton
       Left = 1
-      Top = 49
+      Top = 121
       Width = 53
-      Height = 48
+      Height = 60
       Align = alTop
-      Caption = 'Connect'
+      Caption = 'Open'
       Enabled = False
       Glyph.Data = {
         42100000424D4210000000000000420000002800000020000000200000000100
@@ -253,13 +253,13 @@ object fSerial: TfSerial
         000000000000}
       Layout = blGlyphTop
       OnClick = Open
-      ExplicitTop = 51
+      ExplicitTop = 61
     end
     object btnExit: TSpeedButton
       Left = 1
-      Top = 264
+      Top = 252
       Width = 53
-      Height = 48
+      Height = 60
       Align = alBottom
       Caption = 'Exit'
       Glyph.Data = {
@@ -340,7 +340,18 @@ object fSerial: TfSerial
         FF00FFFFFF00}
       Layout = blGlyphTop
       OnClick = close
-      ExplicitTop = 230
+      ExplicitTop = 257
+    end
+    object btnConfig: TSpeedButton
+      Left = 1
+      Top = 61
+      Width = 53
+      Height = 60
+      Align = alTop
+      Caption = 'Setup'
+      Layout = blGlyphTop
+      ExplicitLeft = 2
+      ExplicitWidth = 58
     end
   end
   object pnlCorpo: TPanel
@@ -504,9 +515,9 @@ object fSerial: TfSerial
       Width = 380
       Height = 248
       Align = alLeft
+      PopupMenu = pmMMO1
       ReadOnly = True
       TabOrder = 2
-      OnDblClick = mmoRecebidasDblClick
     end
     object mmoEnviadas: TMemo
       Left = 384
@@ -514,9 +525,9 @@ object fSerial: TfSerial
       Width = 205
       Height = 248
       Align = alClient
+      PopupMenu = pmMMO2
       ReadOnly = True
       TabOrder = 3
-      OnDblClick = mmoEnviadasDblClick
     end
   end
   object sttStatus: TStatusBar
@@ -541,9 +552,12 @@ object fSerial: TfSerial
         Alignment = taCenter
         BiDiMode = bdLeftToRight
         ParentBiDiMode = False
-        Text = 'Raul del Aguila, up 1.0 (01/11/2019)'
+        Text = 'Raul del Aguila, up 1.01 (15/04/2021)'
         Width = 50
       end>
+    OnDblClick = sttStatusDblClick
+    ExplicitLeft = -1
+    ExplicitTop = 317
   end
   object cmpt1: TComPort
     BaudRate = br9600
@@ -565,5 +579,21 @@ object fSerial: TfSerial
     OnException = cmpt1Exception
     Left = 488
     Top = 72
+  end
+  object pmMMO1: TPopupMenu
+    Left = 280
+    Top = 32
+    object Clear1: TMenuItem
+      Caption = 'Clear'
+      OnClick = Clear1Click
+    end
+  end
+  object pmMMO2: TPopupMenu
+    Left = 520
+    Top = 24
+    object Clear2: TMenuItem
+      Caption = 'Clear'
+      OnClick = Clear2Click
+    end
   end
 end

@@ -32,6 +32,11 @@ type
     btnSend: TButton;
     edtDados: TEdit;
     sttStatus: TStatusBar;
+    btnConfig: TSpeedButton;
+    pmMMO1: TPopupMenu;
+    Clear1: TMenuItem;
+    pmMMO2: TPopupMenu;
+    Clear2: TMenuItem;
     procedure close(Sender: TObject);
     procedure About(Sender: TObject);
     procedure Setup(Sender: TObject);
@@ -52,9 +57,10 @@ type
     procedure cmpt1Exception(Sender: TObject; TComException: TComExceptions;
       ComportMessage: string; WinError: Int64; WinMessage: string);
     procedure FormCreate(Sender: TObject);
-    procedure mmoRecebidasDblClick(Sender: TObject);
     procedure LimpaMemoria;
-    procedure mmoEnviadasDblClick(Sender: TObject);
+    procedure Clear1Click(Sender: TObject);
+    procedure Clear2Click(Sender: TObject);
+    procedure sttStatusDblClick(Sender: TObject);
   private
 
     { Private declarations }
@@ -96,10 +102,20 @@ begin
   nHistorico := -1;
 end;
 
+procedure TfSerial.Clear1Click(Sender: TObject);
+begin
+  mmoRecebidas.Lines.Clear;
+end;
+
+procedure TfSerial.Clear2Click(Sender: TObject);
+begin
+  mmoEnviadas.Lines.Clear;
+end;
+
 procedure TfSerial.close(Sender: TObject);
 begin
   if cmpt1.Connected then
-    connect(False);
+    cmpt1.close;
   Application.Terminate;
 end;
 
@@ -153,6 +169,11 @@ begin
   btnOpen.Enabled := True;
 end;
 
+procedure TfSerial.sttStatusDblClick(Sender: TObject);
+begin
+  About(nil);
+end;
+
 procedure TfSerial.Open(Sender: TObject);
 begin
   if cmpt1.Connected then
@@ -161,7 +182,7 @@ begin
     begin
       sttStatus.Panels[1].Text := 'Disconnected';
       sttStatus.Panels[2].Text := '';
-      btnOpen.Caption := 'Connect';
+      btnOpen.Caption := 'Open';
       LimpaMemoria;
     end
     else
@@ -174,7 +195,7 @@ begin
       begin
         sttStatus.Panels[1].Text := 'Connected (' + cmpt1.Port + ')';
         sttStatus.Panels[2].Text := '';
-        btnOpen.Caption := 'Disconnect';
+        btnOpen.Caption := 'Close';
         uINI.WriteINIFile;
       end
       else
@@ -209,11 +230,13 @@ begin
   begin
     btnSetupPort.Enabled := False;
     btnSend.Enabled := True;
+    btnConfig.Enabled := False;
   end
   else
   begin
     btnSetupPort.Enabled := True;
     btnSend.Enabled := False;
+    btnConfig.Enabled := True;
   end;
 
   Result := status;
@@ -336,19 +359,9 @@ begin
     end).start();
 end;
 
-procedure TfSerial.mmoEnviadasDblClick(Sender: TObject);
-begin
-  mmoEnviadas.Lines.Clear;
-end;
-
-procedure TfSerial.mmoRecebidasDblClick(Sender: TObject);
-begin
-  mmoRecebidas.Lines.Clear;
-end;
-
 procedure TfSerial.About(Sender: TObject);
 begin
-  MessageDlg('Author: Raul del Aguila' + #13 + 'Update: 2.0 - 21/05/2019',
+  MessageDlg('Author: Raul del Aguila' + #13 + 'Update: 1.01 - 15/04/2021',
     mtInformation, [mbOK], 0);
 end;
 
